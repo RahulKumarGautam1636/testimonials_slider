@@ -245,17 +245,17 @@ function rightClick() {
   } else {
     i--;
   }
-    avatar.css("transform", "translateX(150px)");
+    avatar.css("transform", "translateX(-150px)");
     avatar.css("opacity", "0");
-    setTimeout(function() {avatar.css("transform", "translateX(-150px)");},400);
+    setTimeout(function() {avatar.css("transform", "translateX(150px)");},400);
     setTimeout(function() {
       avatar.css("transform", "translateX(0px)");
       avatar.attr("src", "images/image-"+imageList[i]+".jpg");
       avatar.css("opacity", "1")},675);
 
-      quoteContainer.css("transform", "translateX(150px)");
+      quoteContainer.css("transform", "translateX(-150px)");
       quoteContainer.css("opacity", "0");
-      setTimeout(function() {quoteContainer.css("transform", "translateX(-150px)");},400);
+      setTimeout(function() {quoteContainer.css("transform", "translateX(150px)");},400);
       setTimeout(function() {
         quoteContainer.css("transform", "translateX(0px)");
         quoteContainer.css("opacity", "1")},675);
