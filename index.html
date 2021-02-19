@@ -16,7 +16,7 @@
 
     * {margin: 0; padding: 0; box-sizing: border-box;}
     section {
-      heitgh: 100vh;
+      min-height: 100vh;
       width: 100%;
       background: white;
       background-position: left bottom;
@@ -58,6 +58,7 @@
     #avatar {
       box-shadow: -10px 25px 40px -25px rgba(50,100,100,0.3);
       margin-top: 2rem;
+      transition: 0.35s ease-in-out;
     }
     .description {
       word-spacing: 0.1rem;
@@ -66,12 +67,13 @@
       font-family: "Inter", cursive;
       font-weight: lighter;
       color: hsl(240, 38%, 20%);
-
     }
     .descriptionContainer {
       position: absolute;
       margin-left: 20rem;
       width: 40rem;
+      z-index: 2;
+      transition: 0.35s ease-in-out;
     }
     .info {
       display: flex;
@@ -152,9 +154,9 @@
       }
       .image {
         order: 1;
+        padding:  0.8rem;
         width: 100%;
         height: 75%;
-        padding:  0.8rem;
       }
       #avatar {
         margin-top: 2rem;
@@ -170,7 +172,6 @@
       #post {
         font-size: 1.8rem;
       }
-
     }
     @media only screen and (max-width: 380px) {
       html {
@@ -182,8 +183,6 @@
         font-size: 40%;
       }
     }
-
-
   </style>
 </head>
 <body>
@@ -191,7 +190,7 @@
   <div class="container">
     <div class="content">
   <div class="descriptionContainer">
-  <p class="description">“ I’ve been interested in coding for a while but never taken the jump, until now.
+  <p class="description" id="quote">“ I’ve been interested in coding for a while but never taken the jump, until now.
     I couldn’t recommend this course enough. I’m now in the job of my dreams and so
     excited about the future. ”</p>
     <div class="info">
@@ -206,44 +205,78 @@
     </div>
   </div>
 </section>
+<div class="attribution">
+  Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+  Coded by <a href="#">Rahul Kumar Gautam</a>.
+</div>
 <script>
-$("#left").click(function() {leftClick()});
+$("#left").click(function() {leftClick(), quoteChange()});
 var i = 0;
+var avatar = $("#avatar");
+ var quoteContainer = $(".descriptionContainer");
+var quote = $("#quote");
 var imageList = [1, 2];
-// var dp = $("#avatar");
 function leftClick() {
-  $("#avatar").attr("src", "images/image-"+imageList[i]+".jpg");
+  avatar.css("transform", "translateX(-150px)");
+  avatar.css("opacity", "0");
+  setTimeout(function() {avatar.css("transform", "translateX(150px)");},400);
+  setTimeout(function() {
+    avatar.css("transform", "translateX(0px)");
+    avatar.attr("src", "images/image-"+imageList[i]+".jpg");
+    avatar.css("opacity", "1")},675);
+
+    quoteContainer.css("transform", "translateX(-150px)");
+    quoteContainer.css("opacity", "0");
+    setTimeout(function() {quoteContainer.css("transform", "translateX(150px)");},400);
+    setTimeout(function() {
+      quoteContainer.css("transform", "translateX(0px)");
+      quoteContainer.css("opacity", "1")},675);
+
   if (i==imageList.length-1) {
     i = 0;
   } else {
     i++
   }
 }
-$("#right").click(function() {leftClick()});
+$("#right").click(function() {rightClick(), quoteChange()});
 function rightClick() {
   if (i==0) {
     i = imageList.length-1;
   } else {
     i--;
   }
-    $("#avatar").attr("src", "images/image-"+imageList[i]+".jpg");
+    avatar.css("transform", "translateX(150px)");
+    avatar.css("opacity", "0");
+    setTimeout(function() {avatar.css("transform", "translateX(-150px)");},400);
+    setTimeout(function() {
+      avatar.css("transform", "translateX(0px)");
+      avatar.attr("src", "images/image-"+imageList[i]+".jpg");
+      avatar.css("opacity", "1")},675);
+
+      quoteContainer.css("transform", "translateX(150px)");
+      quoteContainer.css("opacity", "0");
+      setTimeout(function() {quoteContainer.css("transform", "translateX(-150px)");},400);
+      setTimeout(function() {
+        quoteContainer.css("transform", "translateX(0px)");
+        quoteContainer.css("opacity", "1")},675);
 }
+
+function quoteChange() {
+  setTimeout(function() {
+  if ($("#person").html() === "Tanya Sinclair") {
+    quote.html(quoteList[1]);
+    $("#person").html("John Tarkpor");
+    $("#post").html("Juniour Front-end Developer");
+  } else {
+    quote.html(quoteList[0]);
+    $("#person").html("Tanya Sinclair");
+    $("#post").html("UX Engineer");
+  }
+},200);
+}
+const tanya = '“ I’ve been interested in coding for a while but never taken the jump, until now. I couldn’t recommend this course enough. I’m now in the job of my dreams and so excited about the future. ”';
+const john = '“ If you want to lay the best foundation possible I’d recommend taking this course. The depth the instructors go into is incredible. I now feel so confident about starting up as a professional developer. ”';
+const quoteList = [tanya, john];
 </script>
 </body>
 </html>
-
-
-<!-- Tanya Sinclair
-UX Engineer -->
-
-<!-- “ If you want to lay the best foundation possible I’d recommend taking this course.
-The depth the instructors go into is incredible. I now feel so confident about
-starting up as a professional developer. ”
-
-John Tarkpor
-Junior Front-end Developer
-
-<div class="attribution">
-Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-Coded by <a href="#">Your Name Here</a>.
-</div> -->
