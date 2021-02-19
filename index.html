@@ -217,9 +217,9 @@ var avatar = $("#avatar");
 var quote = $("#quote");
 var imageList = [1, 2];
 function leftClick() {
-  avatar.css("transform", "translateX(-150px)");
+  avatar.css("transform", "translateX(150px)");
   avatar.css("opacity", "0");
-  setTimeout(function() {avatar.css("transform", "translateX(150px)");},400);
+  setTimeout(function() {avatar.css("transform", "translateX(-150px)");},400);
   setTimeout(function() {
     avatar.css("transform", "translateX(0px)");
     avatar.attr("src", "images/image-"+imageList[i]+".jpg");
