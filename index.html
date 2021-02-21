@@ -89,12 +89,14 @@
       color: hsl(240, 18%, 77%);
       font-size: 1.3rem;
       font-weight: bold;
-      color: gray;
     }
     .nav {
       display: flex;
       margin-top: -1.4rem;
       transform: translateX(-10rem);
+      border-radius: 50%;
+      background: white;
+      box-shadow: 0px 5px 15px 0px rgba(100,100,100,0.3);
     }
     .nav div {
       height: 2.7rem;
@@ -102,7 +104,6 @@
       background: white;
       background-position: center;
       background-repeat: no-repeat;
-      box-shadow: 0px 5px 15px 0px rgba(100,100,100,0.3);
     }
     #left {
       border-top-left-radius: 50px;
@@ -120,6 +121,7 @@
       }
       section {
         height: auto;
+        background-size: 100%;
       }
       .container {
         padding: 1rem;
@@ -146,9 +148,10 @@
       }
       .content {
         margin-top: 3.5rem;
+        height: auto;
         order: 2;
         width: 100%;
-        padding: 5rem 1rem 0 1rem;
+        padding: 5rem 1rem 1.5rem 1rem;
         text-align: center;
         justify-content: center;
       }
@@ -159,18 +162,19 @@
         height: 75%;
       }
       #avatar {
-        margin-top: 2rem;
+        margin: 3rem 0 -1.5rem 0;
         width: 35rem;
-        transform: translateY(1.5rem);
       }
       .info {
         flex-direction: column;
       }
       #person {
         font-size: 2rem;
+        margin: 1rem 0 1rem 0;
       }
       #post {
         font-size: 1.8rem;
+
       }
     }
     @media only screen and (max-width: 380px) {
